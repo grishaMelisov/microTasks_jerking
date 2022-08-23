@@ -1,13 +1,24 @@
-export function Button() {
-  let counter = 0
+import { useState } from 'react'
+import { text } from 'stream/consumers'
 
-  function yo() {
-    return alert('yo')
+type ButtonPropsType = {
+  title: string
+  callBack: () => void
+}
+
+export function Button(props: ButtonPropsType) {
+  const [clicks, setClicks] = useState<number>(0)
+
+  function onClickHandler() {
+    props.callBack()
+    setClicks(clicks + 1)
   }
 
   return (
     <div>
-      <button onClick={yo}>YouTubeSubscribe-{counter}</button>
+      <button onClick={onClickHandler}>
+        {props.title}-{clicks}
+      </button>
     </div>
   )
 }

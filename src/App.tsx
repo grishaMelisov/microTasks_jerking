@@ -1,5 +1,5 @@
-import React from 'react'
-import logo from './logo.svg'
+import React, { useState } from 'react'
+
 import './App.css'
 import { NewCar, NewComponent } from './components/newcomponent'
 import { Button } from './components/button'
@@ -17,11 +17,23 @@ function App() {
     { manufacturer: 'Audi', model: 'rs6' },
   ]
 
+  const deleteButtonFoo = (subscriber: string) => {
+    alert(subscriber)
+  }
+  const addButtonFoo = (subscriber: string) => {
+    alert(subscriber)
+  }
+  const stupidButtonFoo = () => {
+    alert("I'm fool!")
+  }
+
   return (
     <div>
       <NewComponent students={students} />
       <NewCar car={topCars} />
-      <Button />
+      <Button title={'Delete'} callBack={() => deleteButtonFoo('Deleted')} />
+      <Button title={'Add'} callBack={() => addButtonFoo('Added')} />
+      <Button title={'Empty Button'} callBack={() => stupidButtonFoo()} />
     </div>
   )
 }
