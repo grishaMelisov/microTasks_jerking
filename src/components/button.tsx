@@ -14,11 +14,15 @@ export function Button(props: ButtonPropsType) {
     setClicks(clicks + 1)
   }
 
+  function resetClicker() {
+    setClicks(clicks - clicks)
+  }
   return (
     <div>
       <button onClick={onClickHandler}>
         {props.title}-{clicks}
       </button>
+      <button onClick={resetClicker}>reset</button>
     </div>
   )
 }
